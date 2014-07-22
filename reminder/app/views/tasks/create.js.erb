@@ -1,4 +1,5 @@
 // Insert newly created task, at top of tasks
 <% if @task.due_date < 1.day.from_now %>
-  $("#header").after('<tr><td><%=@task.title%></td><td><%=@task.due_date.strftime("%m/%d/%Y") %></td><td></td></tr>');
+  // $("#header").after('<tr><td><%=@task.title%></td><td><%=@task.due_date.strftime("%m/%d/%Y") %></td><td></td></tr>');
+  $("#header").after( '<%= j render partial: 'tablerow', locals: {task: @task}%>')
 <% end %>

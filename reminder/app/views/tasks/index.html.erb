@@ -1,8 +1,9 @@
-<div class="container">
+
   <div class="page-header">
     <h1>Souvenir! <small>Organize it!!!</small></h1>
   </div>
 
+  <div>
   <%= form_for @task, remote: true do |f| %>
     <div class="form-group newtodo">
       <div class="col-xs-5">
@@ -16,8 +17,8 @@
       </div>
     </div>
   <% end %>
-
-
+</div>
+  <br>
   <div class="panel panel-info">
     <div class="panel-heading">Task Details</div>
       <table class="table">
@@ -28,17 +29,17 @@
           </tr>
         </thead>
 
-      <tbody>
-        <% @tasks.each do |task| %>
-          <% if task.due_date < 1.day.from_now %>
-            <tr id="row<%=task.id%>">
-              <td><%= task.title %></td>
-              <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
-              <td><%= link_to "Done", task, method: :delete, remote: true, class:"btn btn-primary btn-sm btn-block", "data-confirm"=> "Are you sure?"%></td>
-            </tr>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <%= render partial: 'tablerow', locals: {task: task} %>
+            <!-- <% if task.due_date < 1.day.from_now %>
+              <tr id="row<%=task.id%>">
+                <td><%= task.title %></td>
+                <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
+                <td><%= link_to "Done", task, method: :delete, remote: true, class:"btn btn-primary btn-sm btn-block", "data-confirm"=> "Are you sure?"%></td>
+              </tr>
+            <% end %> -->
           <% end %>
-        <% end %>
-      </tbody>
+        </tbody>
     </table>
   </div>
-</div>
