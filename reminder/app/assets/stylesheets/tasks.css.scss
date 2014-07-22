@@ -1,0 +1,23 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.items {
+  padding-top: 2em;
+  li {
+    font-size: 3rem;
+    padding-bottom: 5rem;
+  }
+  li.done {
+    color: #95a5a6;
+    span {
+      text-decoration: line-through;
+    }
+  }
+}
+
+
+.newtodo {
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
